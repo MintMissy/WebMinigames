@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./side-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SideBarComponent {}
+export class SideBarComponent {
+  @Input() statistics!: MemoGameStatistics;
+}

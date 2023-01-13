@@ -7,6 +7,7 @@ import { CardsBoardComponent } from './ui/cards-board/cards-board.component';
 import { MemoCardComponent } from './ui/memo-card/memo-card.component';
 import { SideBarComponent } from './ui/side-bar/side-bar.component';
 import { StatisticsComponent } from './ui/statistics/statistics.component';
+import { MemoProgressBarComponent } from './ui/memo-progress-bar/memo-progress-bar.component';
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { StatisticsComponent } from './ui/statistics/statistics.component';
 		SideBarComponent,
 		StatisticsComponent,
 		MemoCardComponent,
+		MemoProgressBarComponent,
 	],
 	imports: [CommonModule, MemoCardsRoutingModule],
 })
