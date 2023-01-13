@@ -8,5 +8,5 @@ import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideBarComponent {
-  @Input() statistics!: MemoGameStatistics;
+  @Input() statistics!: MemoGameStatistics | null;
 }

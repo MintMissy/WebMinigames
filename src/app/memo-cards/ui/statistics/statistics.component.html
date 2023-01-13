@@ -3,9 +3,9 @@
 </div>
 
 <img src="../../images/MemoCards/clepsydra.svg" class="timerImage" alt="clepsydra" />
-<div id="timer">{{ statistics.startGameTime }}</div>
+<div id="timer">{{ statistics ? statistics.startGameTime : 0 }}</div>
 <img src="../../images/MemoCards/steps.svg" class="stepsImage" alt="steps" />
-<div id="steps">{{ statistics.moves }}</div>
+<div id="steps">{{ statistics ? statistics.moves : 0 }}</div>
 <img src="../../images/MemoCards/playAgain.svg" class="playAgain" alt="play again" onclick="resetGame()" />
 
 <div id="statsContainer">
@@ -14,4 +14,4 @@
 	<div class="statsBackground"></div>
 </div>
 
-<app-memo-progress-bar [progress]="statistics.progress"></app-memo-progress-bar>
+<app-memo-progress-bar [progress]="statistics ? statistics.progress : 0"></app-memo-progress-bar>

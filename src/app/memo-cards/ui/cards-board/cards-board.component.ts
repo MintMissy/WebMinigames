@@ -8,7 +8,7 @@ import { MemoCard } from '../../model/memo-card.model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardsBoardComponent {
-	@Input() memoCards!: MemoCard[];
+	@Input() memoCards!: MemoCard[] | null;
 
-	@Output() flipCard = new EventEmitter<{ cardIndex: number }>();
+	@Output() flipCard = new EventEmitter<number>();
 }

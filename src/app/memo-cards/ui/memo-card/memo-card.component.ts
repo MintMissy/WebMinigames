@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MemoCard } from '../../model/memo-card.model';
 
 @Component({
@@ -10,5 +10,5 @@ import { MemoCard } from '../../model/memo-card.model';
 export class MemoCardComponent {
 	@Input() memoCard!: MemoCard;
 
-	@Output() flipCard = new EventEmitter<{ cardIndex: number }>();
+	@Output() flipCard = new EventEmitter<number>();
 }
