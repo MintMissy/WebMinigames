@@ -1,0 +1,3 @@
+<div class="board">
+	<app-memo-card *ngFor="let card of memoCards" [memoCard]="card" (flipCard)="flipCard.emit($event)"></app-memo-card>
+</div>
