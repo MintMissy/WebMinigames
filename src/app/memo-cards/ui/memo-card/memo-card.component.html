@@ -1,4 +1,8 @@
-<div class="card" [ngClass]="{ 'flipped': memoCard.flipped }" (click)="flipCard.emit(memoCard.index)">
+<div
+	class="card"
+	[ngClass]="{ flipped: memoCard.flipped, hidden: memoCard.completed }"
+	(click)="flipCard.emit(memoCard.index)"
+>
 	<div class="card__wrapper">
 		<div class="card__wrapper__front"></div>
 		<div class="card__wrapper__back">{{ memoCard.symbol }}</div>

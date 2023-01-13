@@ -1,5 +1,5 @@
 export type MemoGameStatistics = {
-	startGameTime: Date;
+	startGameTime: number;
 	moves: number;
 	progress: number;
 };
