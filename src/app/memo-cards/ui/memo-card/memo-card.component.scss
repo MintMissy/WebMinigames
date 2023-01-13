@@ -3,6 +3,14 @@
 	perspective: 1000px;
 	aspect-ratio: 1;
 
+	&.flipped &__wrapper {
+		transform: rotateY(180deg);
+	}
+
+	&:not(.flipped) {
+		cursor: pointer;
+	}
+
 	&__wrapper {
 		position: relative;
 		width: 100%;
@@ -28,12 +36,28 @@
 			justify-content: center;
 			transform: rotateY(180deg);
 			background-color: var(--color-accent);
-			font-size: 5rem;
+			font-size: 3.5rem;
 			font-weight: 500;
+
+			@media screen and (min-width: 300px) {
+				font-size: 4.25rem;
+			}
+
+			@media screen and (min-width: 450px) {
+				font-size: 5rem;
+			}
+
+			@media screen and (min-width: 700px) {
+				font-size: 4rem;
+			}
+
+			@media screen and (min-width: 650px) {
+				font-size: 6rem;
+			}
+
+			&::selection {
+				background-color: transparent;
+			}
 		}
 	}
-}
-
-.flipped {
-	transform: rotateY(180deg);
 }
