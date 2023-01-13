@@ -11,4 +11,8 @@ export class CardsBoardComponent {
 	@Input() memoCards!: MemoCard[] | null;
 
 	@Output() flipCard = new EventEmitter<number>();
+
+	trackByIndex(index: number, card: MemoCard) {
+		return card.index;
+	}
 }

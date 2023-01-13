@@ -4,6 +4,9 @@
 
 .board {
 	display: grid;
-	grid-template-columns: repeat(4rem);
+	grid-template-columns: repeat(4, 1fr);
+	padding: 1rem;
+	border-radius: 0.5rem;
+	background-color: var(--color-dark-2);
 	gap: 1rem;
 }

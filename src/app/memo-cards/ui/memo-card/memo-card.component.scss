@@ -1,31 +1,35 @@
 .card {
-	display: inline-flex;
-	position: relative;
-	align-items: center;
-	justify-items: center;
-	transform-style: preserve-3d;
-	background-color: transparent;
 	color: #161824;
 	perspective: 1000px;
-	transition: transform 0.8s;
 	aspect-ratio: 1;
 
 	&__wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transform-style: preserve-3d;
+		transition: transform 0.8s;
+
 		&__front,
 		&__back {
 			position: absolute;
-			border-radius: .5rem;
+			border-radius: 0.5rem;
 			backface-visibility: hidden;
 			inset: 0;
 		}
 
 		&__front {
-			background-color: #00e0a8;
+			background-color: var(--color-primary);
 		}
 
 		&__back {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			transform: rotateY(180deg);
-			background-color: #1fdc58;
+			background-color: var(--color-accent);
+			font-size: 5rem;
+			font-weight: 500;
 		}
 	}
 }
