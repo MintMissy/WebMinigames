@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MemoCardsStore } from './memo-cards.store';
 
 @Component({
@@ -8,13 +8,17 @@ import { MemoCardsStore } from './memo-cards.store';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [MemoCardsStore],
 })
-export class MemoCardsContainerComponent {
-	cards$ = this.memoCardsStore.cards$;
-	statistics$ = this.memoCardsStore.statistics$;
+export class MemoCardsContainerComponent implements OnInit {
+	cards$ = this.store.cards$;
+	statistics$ = this.store.statistics$;
 
-	constructor(private readonly memoCardsStore: MemoCardsStore) {}
+	constructor(private readonly store: MemoCardsStore) {}
+
+	ngOnInit(): void {
+		this.store.restartGame();
+	}
 
   onCardFlip(cardIndex: number){
-    this.memoCardsStore.flipCard(cardIndex);
+    this.store.flipCard(cardIndex);
   }
 }
