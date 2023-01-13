@@ -1,30 +1,17 @@
 <div class="titleBackground titleBackgroundPos2">
-  <div id="statsText" class="titlePosition2 text primaryBlack">STATISTICS</div>
+	<div id="statsText" class="titlePosition2 text primaryBlack">STATISTICS</div>
 </div>
 
-<img
-  src="../../images/MemoCards/clepsydra.svg"
-  class="timerImage"
-  alt="clepsydra"
-/>
-<div id="timer" class="title primaryWhite">0</div>
+<img src="../../images/MemoCards/clepsydra.svg" class="timerImage" alt="clepsydra" />
+<div id="timer">{{ statistics.startGameTime }}</div>
 <img src="../../images/MemoCards/steps.svg" class="stepsImage" alt="steps" />
-<div id="steps" class="text primaryWhite">0</div>
-<img
-  src="../../images/MemoCards/playAgain.svg"
-  class="playAgain"
-  alt="play again"
-  onclick="resetGame()"
-/>
+<div id="steps">{{ statistics.moves }}</div>
+<img src="../../images/MemoCards/playAgain.svg" class="playAgain" alt="play again" onclick="resetGame()" />
 
 <div id="statsContainer">
-  <div class="statsBackground"></div>
-  <div class="statsBackground"></div>
-  <div class="statsBackground"></div>
+	<div class="statsBackground"></div>
+	<div class="statsBackground"></div>
+	<div class="statsBackground"></div>
 </div>
-<div class="barContainer">
-  <div id="progressPercents" class="text primaryBlack">0%</div>
-  <div id="blankBar">
-    <div id="progressBar"></div>
-  </div>
-</div>
+
+<app-memo-progress-bar [progress]="statistics.progress"></app-memo-progress-bar>
