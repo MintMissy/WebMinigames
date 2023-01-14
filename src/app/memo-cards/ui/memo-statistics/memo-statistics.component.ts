@@ -9,8 +9,8 @@ import {
 	SimpleChanges
 } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { ElapsedTime, ElapsedTimePipe } from '../../../core/pipe/elapsed-time.pipe';
 import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
-import { ElapsedTime, ElapsedTimePipe } from '../../pipe/elapsed-time.pipe';
 
 @Component({
 	selector: 'app-memo-statistics',

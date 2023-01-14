@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './core/page/home/home.component';
 
 const routes: Routes = [
   {
@@ -12,11 +11,7 @@ const routes: Routes = [
     path: 'hangman',
     loadChildren: () =>
       import('./hang-man/hang-man.module').then((m) => m.HangManModule),
-  },
-  {
-    path: '*',
-    component: HomeComponent,
-  },
+  }
 ];
 
 @NgModule({
