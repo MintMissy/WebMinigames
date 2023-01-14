@@ -18,7 +18,7 @@ export class MemoCardsContainerComponent implements OnInit {
 		this.store.restartGame();
 	}
 
-  onCardFlip(cardIndex: number){
-    this.store.flipCard(cardIndex);
-  }
+	onCardFlip(cardIndex: number) {
+		this.store.flipCard(cardIndex);
+	}
 }

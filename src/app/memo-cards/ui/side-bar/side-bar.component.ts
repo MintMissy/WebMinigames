@@ -9,4 +9,6 @@ import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 })
 export class SideBarComponent {
   @Input() statistics!: MemoGameStatistics | null;
+  @Input() gameStartTime!: number | null;
+  @Input() gameProgress!: number | null;
 }

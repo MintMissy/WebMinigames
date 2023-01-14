@@ -1,13 +1,21 @@
 .bar {
 	position: relative;
+	width: 100%;
+	height: 1.75rem;
+	overflow: hidden;
+	border-radius: 0.5rem;
+	background-color: var(--color-dark-1);
 
 	&__progress-number {
 		position: absolute;
-		inset: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	&__progress {
-		border-radius: 0.5rem;
+		height: 100%;
 		background-color: #1fdc58;
+		transition: width 0.5s;
 	}
 }

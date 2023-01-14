@@ -8,6 +8,7 @@ import { MemoCardComponent } from './ui/memo-card/memo-card.component';
 import { SideBarComponent } from './ui/side-bar/side-bar.component';
 import { StatisticsComponent } from './ui/statistics/statistics.component';
 import { MemoProgressBarComponent } from './ui/memo-progress-bar/memo-progress-bar.component';
+import { ElapsedTimePipe } from './pipe/elapsed-time.pipe';
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,7 @@ import { MemoProgressBarComponent } from './ui/memo-progress-bar/memo-progress-b
 		StatisticsComponent,
 		MemoCardComponent,
 		MemoProgressBarComponent,
+  ElapsedTimePipe,
 	],
 	imports: [CommonModule, MemoCardsRoutingModule],
 })

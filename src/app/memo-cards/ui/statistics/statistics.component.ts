@@ -9,4 +9,5 @@ import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 })
 export class StatisticsComponent {
   @Input() statistics!: MemoGameStatistics | null;
+  @Input() gameProgress!: number | null;
 }

@@ -45,14 +45,23 @@ export class MemoCardsStore extends ComponentStore<MemoCardsState> {
 			}
 
 			if (flippedCards === 2) {
+				clonedState.statistics.moves = state.statistics.moves + 1;
+
 				const cardSymbols = [...cards].filter((card) => card.flipped === true).map((card) => card.symbol);
 
 				if (cardSymbols[0] === cardSymbols[1]) {
 					// Mark cards as completed -> player found a pair
 					setTimeout(() => {
+						const mappedCards = [...cards].map((card) => ({
+							...card,
+							completed: card.flipped ? true : card.completed,
+							flipped: false,
+						}));
+
 						this.applyFlip({
 							...clonedState,
-							cards: [...cards].map((card) => ({ ...card, completed: card.flipped ? true : card.completed, flipped: false })),
+							statistics: { ...clonedState.statistics, progress: this.getGameProgress(mappedCards) },
+							cards: mappedCards,
 						});
 					}, state.flippingAnimationDuration);
 				} else {
@@ -72,10 +81,6 @@ export class MemoCardsStore extends ComponentStore<MemoCardsState> {
 		});
 	}
 
-	private applyFlip(state: MemoCardsState) {
-		this.setState((_) => state);
-	}
-
 	restartGame() {
 		this.setState((state) => {
 			return {
@@ -89,6 +94,14 @@ export class MemoCardsStore extends ComponentStore<MemoCardsState> {
 				lastFlipTime: 0,
 			};
 		});
+	}
+
+	private getGameProgress(cards: MemoCard[]): number {
+		return (cards.reduce((previous, current) => previous + (current.completed ? 1 : 0), 0) / cards.length) * 100;
+	}
+
+	private applyFlip(state: MemoCardsState) {
+		this.setState((_) => state);
 	}
 
 	private isPlayingFlippingAnimation() {
