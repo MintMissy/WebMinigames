@@ -81,7 +81,7 @@ export class MemoCardsStore extends ComponentStore<MemoCardsState> {
 		});
 	}
 
-	restartGame() {
+	resetGame() {
 		this.setState((state) => {
 			return {
 				...state,

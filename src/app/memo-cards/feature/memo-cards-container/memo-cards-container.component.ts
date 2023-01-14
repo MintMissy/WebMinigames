@@ -15,10 +15,14 @@ export class MemoCardsContainerComponent implements OnInit {
 	constructor(private readonly store: MemoCardsStore) {}
 
 	ngOnInit(): void {
-		this.store.restartGame();
+		this.store.resetGame();
 	}
 
 	onCardFlip(cardIndex: number) {
 		this.store.flipCard(cardIndex);
+	}
+
+	onGameReset() {
+		this.store.resetGame();
 	}
 }

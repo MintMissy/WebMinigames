@@ -24,8 +24,25 @@ body {
 	--color-primary: #45aae4;
 	--color-primary-light: #e0fbfc;
 	--color-primary-dark: #3d5a80;
-	--color-accent: #ee6c4d;
+	--color-accent: #f56f4e;
+	--color-accent-dark: #ce5f43;
 	--color-dark-1: #11151b;
 	--color-dark-2: #1d232e;
 	--color-dark-3: #293241;
+}
+
+.button {
+	padding: 0.5rem 1rem;
+	border: 0;
+	border-radius: 0.5rem;
+	outline: none;
+	background-color: var(--color-accent);
+	font-size: 1.1rem;
+	font-weight: 600;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.button:active{
+	background-color: var(--color-accent-dark);
 }

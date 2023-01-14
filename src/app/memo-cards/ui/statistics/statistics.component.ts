@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	ChangeDetectorRef,
+	Component,
+	Input,
+	OnChanges,
+	OnDestroy,
+	OnInit,
+	SimpleChanges
+} from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 import { ElapsedTime, ElapsedTimePipe } from '../../pipe/elapsed-time.pipe';
@@ -10,7 +19,7 @@ import { ElapsedTime, ElapsedTimePipe } from '../../pipe/elapsed-time.pipe';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [ElapsedTimePipe],
 })
-export class StatisticsComponent implements OnInit, OnDestroy {
+export class StatisticsComponent implements OnInit, OnChanges, OnDestroy {
 	@Input() statistics!: MemoGameStatistics | null;
 	@Input() gameProgress!: number | null;
 
@@ -22,12 +31,20 @@ export class StatisticsComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		this.subscription = this.interval$.subscribe((_) => {
-			this.gameTime = this.elapsedTimePipe.transform(this.statistics === null ? 0 : this.statistics.startGameTime);
+			this.updateGameTime();
 			this.changeDetector.markForCheck();
 		});
 	}
 
+	ngOnChanges(changes: SimpleChanges): void {
+		this.updateGameTime();
+	}
+
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
+	}
+
+	private updateGameTime(): void {
+		this.gameTime = this.elapsedTimePipe.transform(this.statistics === null ? 0 : this.statistics.startGameTime);
 	}
 }

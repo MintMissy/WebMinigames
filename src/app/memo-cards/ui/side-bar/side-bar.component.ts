@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 
 @Component({
@@ -11,4 +11,6 @@ export class SideBarComponent {
   @Input() statistics!: MemoGameStatistics | null;
   @Input() gameStartTime!: number | null;
   @Input() gameProgress!: number | null;
+
+  @Output() gameReset = new EventEmitter<void>();
 }

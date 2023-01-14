@@ -7,8 +7,12 @@
 			win the game.
 		</p>
 	</div>
-	<div class="side-bard__statistics">
+	<div class="side-bar__statistics">
 		<h2>Statistics</h2>
 		<app-statistics [statistics]="statistics"></app-statistics>
+	</div>
+	<div class="side-bar__actions">
+		<button class="button button--reset" (click)="gameReset.emit()">Reset Game</button>
+		<button routerLink="/" class="button button--back">Go Back</button>
 	</div>
 </div>
