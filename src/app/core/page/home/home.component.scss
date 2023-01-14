@@ -1,0 +1,52 @@
+.page-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	@media screen and (min-width: 900px) {
+		flex-direction: row;
+	}
+
+	&__link {
+		position: relative;
+		flex: 2;
+		min-height: 100%;
+		background-position: center;
+		text-decoration: none;
+		filter: grayscale(50%);
+		opacity: 0.75;
+		transition: filter 0.4s, opacity 0.4s, flex 0.4s;
+
+		&:hover {
+			flex: 3;
+			filter: grayscale(0);
+			opacity: 1;
+		}
+
+		span {
+			position: absolute;
+			top: 40%;
+			left: 0%;
+			width: 100%;
+			transform: scaleY(0);
+			background-color: #000000;
+			color: #ffffff;
+			font-size: clamp(2.5rem, 10vw, 4rem);
+			font-weight: 800;
+			text-align: center;
+			transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+
+		&:hover span {
+			transform: scaleY(1);
+		}
+
+		&--memocards {
+			background-image: linear-gradient(to bottom, #11998e, #38ef7d);
+		}
+		
+		&--hangman {
+			background-image: linear-gradient(to bottom, #ff416c, #ff4b2b);
+		}
+	}
+}
