@@ -1,4 +1,4 @@
-<div class="side-bar">
+<div class="game-side-bar">
 	<div>
 		<h1>Game Rules</h1>
 		<p>
@@ -7,12 +7,12 @@
 			win the game.
 		</p>
 	</div>
-	<div class="side-bar__statistics">
+	<div class="game-side-bar__statistics">
 		<h2>Statistics</h2>
 		<app-memo-statistics [statistics]="statistics"></app-memo-statistics>
 	</div>
-	<div class="side-bar__actions">
-		<button class="button button--reset" (click)="gameReset.emit()">Reset Game</button>
+	<div class="game-side-bar__actions">
+		<button class="button button--accent button--reset" (click)="gameReset.emit()">Reset Game</button>
 		<button routerLink="/" class="button button--back">Go Back</button>
 	</div>
 </div>
