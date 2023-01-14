@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatisticsComponent } from './statistics.component';
+import { MemoSideBarComponent } from './memo-side-bar.component';
 
-describe('StatisticsComponent', () => {
-  let component: StatisticsComponent;
-  let fixture: ComponentFixture<StatisticsComponent>;
+describe('MemoSideBarComponent', () => {
+  let component: MemoSideBarComponent;
+  let fixture: ComponentFixture<MemoSideBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StatisticsComponent],
+      declarations: [MemoSideBarComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(StatisticsComponent);
+    fixture = TestBed.createComponent(MemoSideBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

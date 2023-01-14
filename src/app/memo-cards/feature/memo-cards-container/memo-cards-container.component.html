@@ -1,4 +1,4 @@
 <div class="game-container">
-	<app-cards-board (flipCard)="onCardFlip($event)" [memoCards]="cards$ | async"></app-cards-board>
-	<app-side-bar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-side-bar>
+	<app-memo-cards-board (flipCard)="onCardFlip($event)" [memoCards]="cards$ | async"></app-memo-cards-board>
+	<app-memo-side-bar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-memo-side-bar>
 </div>

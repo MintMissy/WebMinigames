@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { MemoCard } from '../../model/memo-card.model';
 
 @Component({
-	selector: 'app-cards-board',
-	templateUrl: './cards-board.component.html',
-	styleUrls: ['./cards-board.component.scss'],
+	selector: 'app-memo-cards-board',
+	templateUrl: './memo-cards-board.component.html',
+	styleUrls: ['./memo-cards-board.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardsBoardComponent {
+export class MemoCardsBoardComponent {
 	@Input() memoCards!: MemoCard[] | null;
 
 	@Output() flipCard = new EventEmitter<number>();

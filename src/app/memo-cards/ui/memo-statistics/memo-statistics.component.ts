@@ -13,13 +13,13 @@ import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 import { ElapsedTime, ElapsedTimePipe } from '../../pipe/elapsed-time.pipe';
 
 @Component({
-	selector: 'app-statistics',
-	templateUrl: './statistics.component.html',
-	styleUrls: ['./statistics.component.scss'],
+	selector: 'app-memo-statistics',
+	templateUrl: './memo-statistics.component.html',
+	styleUrls: ['./memo-statistics.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [ElapsedTimePipe],
 })
-export class StatisticsComponent implements OnInit, OnChanges, OnDestroy {
+export class MemoStatisticsComponent implements OnInit, OnChanges, OnDestroy {
 	@Input() statistics!: MemoGameStatistics | null;
 	@Input() gameProgress!: number | null;
 
