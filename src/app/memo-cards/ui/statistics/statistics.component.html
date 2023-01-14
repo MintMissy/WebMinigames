@@ -1,17 +1,11 @@
-<div class="titleBackground titleBackgroundPos2">
-	<div id="statsText" class="titlePosition2 text primaryBlack">STATISTICS</div>
+<div class="statistics">
+	<div class="statistics__info">
+		<p class="statistics__game-time">
+			Game Time: <span>{{ gameTime.minutes }} minutes {{ gameTime.seconds }} seconds</span>
+		</p>
+		<p class="statistics__moves">
+			Moves: <span> {{ statistics ? statistics.moves : 0 }}</span>
+		</p>
+	</div>
+	<app-memo-progress-bar [progress]="statistics ? statistics.progress : 0"></app-memo-progress-bar>
 </div>
-
-<!-- <img src="../../images/MemoCards/clepsydra.svg" class="timerImage" alt="clepsydra" /> -->
-<div id="timer">{{ statistics ? statistics.startGameTime : 0 }}</div>
-<!-- <img src="../../images/MemoCards/steps.svg" class="stepsImage" alt="steps" /> -->
-<div id="steps">{{ statistics ? statistics.moves : 0 }}</div>
-<!-- <img src="../../images/MemoCards/playAgain.svg" class="playAgain" alt="play again" onclick="resetGame()" /> -->
-
-<div id="statsContainer">
-	<div class="statsBackground"></div>
-	<div class="statsBackground"></div>
-	<div class="statsBackground"></div>
-</div>
-
-<app-memo-progress-bar [progress]="statistics ? statistics.progress : 0"></app-memo-progress-bar>
