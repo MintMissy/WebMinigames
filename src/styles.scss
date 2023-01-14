@@ -84,20 +84,22 @@ body {
 	border-radius: 0.5rem;
 	background-color: var(--color-dark-2);
 
-	h1,
-	h2 {
-		margin-top: 0;
-		margin-bottom: 0.5rem;
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		background: var(--color-dark-3);
-		font-size: 2rem;
-	}
+	&__section {
+		& > h1,
+		& > h2 {
+			margin-top: 0;
+			margin-bottom: 0.5rem;
+			padding: 0.5rem 1rem;
+			border-radius: 0.5rem;
+			background: var(--color-dark-3);
+			font-size: 2rem;
+		}
 
-	p {
-		font-size: 1.25rem;
-		line-height: 1.4;
-		padding-inline: 0.5rem;
+		& > p {
+			font-size: 1.25rem;
+			line-height: 1.4;
+			padding-inline: 0.5rem;
+		}
 	}
 
 	&__actions {
