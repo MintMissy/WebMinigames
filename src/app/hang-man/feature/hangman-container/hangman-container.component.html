@@ -4,7 +4,7 @@
 		[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
 		[usedLetters]="(usedLetters$ | async) || {}"
 		(letterUse)="onLetterUse($event)"
-		[leftGuesses]="(leftGuesses$ | async) || 11"
+		[leftGuesses]="(leftGuesses$ | async) === null ? 11 : (leftGuesses$ | async)!"
 	></app-hangman-game-board>
 	<app-hangman-sidebar
 		[statistics]="statistics$ | async"
