@@ -10,6 +10,7 @@ export class HangmanGameBoardComponent {
   @Input() currentWord!: string;
   @Input() lettersToEncrypt!: string[];
   @Input() usedLetters!: Map<string, boolean> | Record<string, boolean>;
+  @Input() leftGuesses!: number;
 
   @Output() letterUse = new EventEmitter<string>();
 }

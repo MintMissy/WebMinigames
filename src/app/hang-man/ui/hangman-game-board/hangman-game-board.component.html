@@ -1,5 +1,5 @@
 <div class="game-board">
-	<app-hangman-gallow></app-hangman-gallow>
+	<app-hangman-gallow [leftGuesses]="leftGuesses"></app-hangman-gallow>
 	<app-hangman-word [currentWord]="currentWord" [lettersToEncrypt]="lettersToEncrypt"></app-hangman-word>
 	<app-hangman-letters-panel
 		[usedLetters]="usedLetters"

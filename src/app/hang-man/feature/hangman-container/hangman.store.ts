@@ -36,7 +36,7 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 	readonly incorrectGuesses$ = this.select((state) => state.incorrectGuesses);
 	readonly statistics$ = this.select((state) => state.statistics);
 	readonly wordsCache$ = this.select((state) => state.wordsCache);
-	readonly leftGuesses$ = this.select((state) => 11 - this.getUsedLetters(state).length);
+	readonly leftGuesses$ = this.select((state) => this.getLeftGuesses(state));
 
 	readonly lettersToEncrypt$ = this.select((state) => {
 		const lettersToEncrypt = [];
@@ -125,14 +125,14 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 		});
 	}
 
-	private getUsedLetters(state: HangmanState): string[] {
+	private getLeftGuesses(state: HangmanState): number {
 		const usedLetters: string[] = [];
 		state.usedLetters.forEach((value, key) => {
 			if (value) {
 				usedLetters.push(key);
 			}
 		});
-		return usedLetters;
+		return 11 - usedLetters.length;
 	}
 
 	private getLetters() {

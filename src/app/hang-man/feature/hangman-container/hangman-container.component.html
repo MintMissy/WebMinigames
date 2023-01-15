@@ -4,8 +4,11 @@
 		[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
 		[usedLetters]="(usedLetters$ | async) || {}"
 		(letterUse)="onLetterUse($event)"
+		[leftGuesses]="(leftGuesses$ | async) || 11"
 	></app-hangman-game-board>
-	<app-hangman-sidebar [statistics]="statistics$ | async" 
-	[leftGuesses]="(leftGuesses$ | async) || 0"
-	(gameReset)="onGameReset()"></app-hangman-sidebar>
+	<app-hangman-sidebar
+		[statistics]="statistics$ | async"
+		[leftGuesses]="(leftGuesses$ | async) || 0"
+		(gameReset)="onGameReset()"
+	></app-hangman-sidebar>
 </div>
