@@ -1,5 +1,5 @@
 <div class="word-container">
-	<span *ngFor="let letter of currentWord | encryptWord : lettersToEncrypt">
+	<span *ngFor="let letter of (currentWord | encryptWord : lettersToEncrypt).split('')">
 		{{ letter }}
 	</span>
 </div>

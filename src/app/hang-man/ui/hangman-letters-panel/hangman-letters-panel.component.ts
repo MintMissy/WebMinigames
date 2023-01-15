@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HangmanLettersPanelComponent {
-	@Input() letters!: Map<string, boolean>;
+	@Input() usedLetters!: Map<string, boolean> | Record<string, boolean>;
 
-  @Output() letterUse = new EventEmitter<string>();
+	@Output() letterUse = new EventEmitter<string>();
 }

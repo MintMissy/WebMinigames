@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HangManModule } from '../hang-man.module';
 
 @Injectable({
-	providedIn: HangManModule,
+	providedIn: 'root',
 })
 export class RandomWordService {
 	private readonly API_URL = 'https://random-word-api.herokuapp.com/word';

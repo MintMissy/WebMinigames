@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { tap } from 'rxjs';
 import { GameState } from 'src/app/core/model/game-state.model';
 import { HangmanGameStatistics } from '../../model/hangman-game-statistics.model';
 import { RandomWordService } from '../../service/random-word.service';
@@ -16,7 +15,7 @@ export interface HangmanState {
 
 const initialState: HangmanState = {
 	usedLetters: new Map<string, boolean>(),
-	currentWord: 'hangman',
+	currentWord: '',
 	wordsCache: [],
 	gameState: 'IN_PROGRESS',
 	incorrectGuesses: 0,
@@ -30,7 +29,6 @@ const initialState: HangmanState = {
 export class HangmanStore extends ComponentStore<HangmanState> {
 	constructor(private randomWordService: RandomWordService) {
 		super(initialState);
-		this.addNewWordsToCache();
 	}
 
 	readonly usedLetters$ = this.select((state) => state.usedLetters);
@@ -93,28 +91,18 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 	}
 
 	restartGame() {
-		this.select((state) => state.wordsCache.length).pipe(
-			tap((leftWords: number) => {
-				if (leftWords <= 3) {
-					this.addNewWordsToCache();
-				}
-
-				this.setState((state) => {
-					return {
-						...state,
-						usedLetters: this.getLetters(),
-						currentWord: state.wordsCache[0],
-						wordsCache: state.wordsCache.slice(1),
-						gameState: 'IN_PROGRESS',
-						statistics: {
-							...state.statistics,
-							startGameTime: Date.now(),
-							progress: 0,
-						},
-					};
-				});
-			})
-		);
+		this.setState((state) => ({
+			...state,
+			usedLetters: this.getLetters(),
+			currentWord: state.wordsCache[0] || 'error',
+			wordsCache: state.wordsCache.slice(1),
+			gameState: 'IN_PROGRESS',
+			statistics: {
+				...state.statistics,
+				startGameTime: Date.now(),
+				progress: 0,
+			},
+		}));
 	}
 
 	private getWordRevealProgress(currentWord: string, usedLetters: Map<string, boolean>): number {
@@ -130,7 +118,7 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 		return (guessedLettersCount / lettersInCurrentWord.length) * 100;
 	}
 
-	private addNewWordsToCache() {
+	addNewWordsToCache() {
 		this.randomWordService
 			.getRandomWords()
 			.subscribe((words) => {
@@ -142,7 +130,7 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 	}
 
 	private getLetters() {
-		const words: [string, boolean][] = 'abcdefghijklmnopqrstuvwxyz'.split('').map((letter) => [letter, false]);
-		return new Map(words);
+		const letters: [string, boolean][] = 'abcdefghijklmnopqrstuvwxyz'.split('').map((letter) => [letter, false]);
+		return new Map(letters);
 	}
 }

@@ -1,1 +1,15 @@
-<p>hangman-container works!</p>
+<div class="game-container">
+	<div class="game-container__board">
+		<app-hangman-gallow></app-hangman-gallow>
+		<app-hangman-word
+			[currentWord]="(currentWord$ | async) || ''"
+			[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
+		></app-hangman-word>
+		{{ usedLetters$ | async | json }}
+		<app-hangman-letters-panel
+			[usedLetters]="(usedLetters$ | async) || {}"
+			(letterUse)="onLetterUse($event)"
+		></app-hangman-letters-panel>
+	</div>
+	<!-- <app-hangman-sidebar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-hangman-sidebar> -->
+</div>
