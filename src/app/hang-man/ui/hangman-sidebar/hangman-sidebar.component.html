@@ -1,1 +1,17 @@
-<p>hangman-sidebar works!</p>
+<div class="game-side-bar">
+	<div class="game-side-bar__section">
+		<h1>Game Rules</h1>
+		<p>
+			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, nemo, doloremque tenetur quasi perspiciatis quis
+			maxime sit repellat vero laboriosam at. Corporis consequatur rerum a tempore aut numquam nam praesentium.
+		</p>
+	</div>
+	<div class="game-side-bar__statistics game-side-bar__section">
+		<h2>Statistics</h2>
+		<app-hangman-statistics [statistics]="statistics"></app-hangman-statistics>
+	</div>
+	<div class="game-side-bar__actions">
+		<button class="button button--accent button--reset" (click)="gameReset.emit()">Reset Game</button>
+		<button routerLink="/" class="button button--back">Go Back</button>
+	</div>
+</div>

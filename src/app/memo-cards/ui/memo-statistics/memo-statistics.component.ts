@@ -1,14 +1,10 @@
 import {
-	ChangeDetectionStrategy,
-	ChangeDetectorRef,
-	Component,
+	ChangeDetectionStrategy, Component,
+	Injector,
 	Input,
-	OnChanges,
-	OnDestroy,
-	OnInit,
-	SimpleChanges
+	OnChanges, SimpleChanges
 } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
+import { RefreshableComponent } from 'src/app/core/model/refreshable-component.class';
 import { ElapsedTime, ElapsedTimePipe } from '../../../core/pipe/elapsed-time.pipe';
 import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 
@@ -19,29 +15,22 @@ import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [ElapsedTimePipe],
 })
-export class MemoStatisticsComponent implements OnInit, OnChanges, OnDestroy {
+export class MemoStatisticsComponent extends RefreshableComponent implements OnChanges {
 	@Input() statistics!: MemoGameStatistics | null;
 	@Input() gameProgress!: number | null;
 
-	private readonly interval$ = interval(1000);
-	private subscription!: Subscription;
 	gameTime: ElapsedTime = { minutes: 0, seconds: 0 };
 
-	constructor(private changeDetector: ChangeDetectorRef, private elapsedTimePipe: ElapsedTimePipe) {}
-
-	ngOnInit(): void {
-		this.subscription = this.interval$.subscribe((_) => {
-			this.updateGameTime();
-			this.changeDetector.markForCheck();
-		});
+	constructor(injector: Injector, private elapsedTimePipe: ElapsedTimePipe) {
+		super(injector, 1000);
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {
 		this.updateGameTime();
 	}
 
-	ngOnDestroy(): void {
-		this.subscription.unsubscribe();
+	onComponentRefresh(): void {
+		this.updateGameTime();
 	}
 
 	private updateGameTime(): void {

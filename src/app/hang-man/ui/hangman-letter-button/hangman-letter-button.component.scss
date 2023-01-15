@@ -6,6 +6,5 @@
 }
 
 .letter-button--used {
-	transform: scale(0);
-	pointer-events: none;
+	background-color: var(--color-primary-dark);
 }

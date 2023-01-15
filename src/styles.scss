@@ -78,6 +78,7 @@ body {
 
 .game-board {
 	padding: 0.5rem;
+	min-height: 100%;
 	border-radius: 0.5rem;
 	background-color: var(--color-dark-2);
 	gap: 0.5rem;

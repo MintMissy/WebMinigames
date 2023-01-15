@@ -1,15 +1,9 @@
 <div class="game-container">
-	<div class="game-container__board">
-		<app-hangman-gallow></app-hangman-gallow>
-		<app-hangman-word
-			[currentWord]="(currentWord$ | async) || ''"
-			[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
-		></app-hangman-word>
-		<app-hangman-letters-panel
-			[usedLetters]="(usedLetters$ | async) || {}"
-			(letterUse)="onLetterUse($event)"
-		></app-hangman-letters-panel>
-	</div>
-	<button (click)="onRestartGame()">restart</button>
-	<!-- <app-hangman-sidebar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-hangman-sidebar> -->
+	<app-hangman-game-board
+		[currentWord]="(currentWord$ | async) || ''"
+		[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
+		[usedLetters]="(usedLetters$ | async) || {}"
+		(letterUse)="onLetterUse($event)"
+	></app-hangman-game-board>
+	<app-hangman-sidebar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-hangman-sidebar>
 </div>

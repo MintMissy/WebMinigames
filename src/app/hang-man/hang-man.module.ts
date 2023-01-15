@@ -11,6 +11,7 @@ import { HangmanLettersPanelComponent } from './ui/hangman-letters-panel/hangman
 import { HangmanSidebarComponent } from './ui/hangman-sidebar/hangman-sidebar.component';
 import { HangmanStatisticsComponent } from './ui/hangman-statistics/hangman-statistics.component';
 import { HangmanWordComponent } from './ui/hangman-word/hangman-word.component';
+import { HangmanGameBoardComponent } from './ui/hangman-game-board/hangman-game-board.component';
 
 @NgModule({
 	declarations: [
@@ -21,7 +22,8 @@ import { HangmanWordComponent } from './ui/hangman-word/hangman-word.component';
     HangmanLetterButtonComponent,
     HangmanSidebarComponent,
     HangmanWordComponent,
-    EncryptWordPipe
+    EncryptWordPipe,
+    HangmanGameBoardComponent
   ],
 	imports: [CommonModule, HangManRoutingModule, LibModule],
 })

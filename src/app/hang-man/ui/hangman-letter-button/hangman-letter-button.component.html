@@ -1,7 +1,7 @@
 <button
 	class="button button--primary letter-button"
 	[ngClass]="{ 'letter-button--used': used }"
-	(click)="letterUse.emit(letter)"
+	(click)="onLetterClick()"
 >
 	{{ letter }}
 </button>

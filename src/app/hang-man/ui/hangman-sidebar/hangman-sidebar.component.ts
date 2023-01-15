@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { HangmanGameStatistics } from '../../model/hangman-game-statistics.model';
 
 @Component({
   selector: 'app-hangman-sidebar',
@@ -7,5 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HangmanSidebarComponent {
+	@Input() statistics!: HangmanGameStatistics | null;
 
+  @Output() gameReset = new EventEmitter<void>();
 }

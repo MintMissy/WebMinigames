@@ -10,6 +10,7 @@ import { HangmanStore } from './hangman.store';
 	providers: [HangmanStore],
 })
 export class HangmanContainerComponent implements OnInit {
+	statistics$ = this.store.statistics$;
 	currentWord$ = this.store.currentWord$;
 	lettersToEncrypt$ = this.store.lettersToEncrypt$;
 	usedLetters$ = this.store.usedLetters$;
@@ -31,7 +32,7 @@ export class HangmanContainerComponent implements OnInit {
 		this.store.guessLetter(letter);
 	}
 
-	onRestartGame() {
+	onGameReset() {
 		this.store.restartGame();
 	}
 
