@@ -15,6 +15,7 @@ export class HangmanContainerComponent implements OnInit {
 	lettersToEncrypt$ = this.store.lettersToEncrypt$;
 	usedLetters$ = this.store.usedLetters$;
 	wordsCache$ = this.store.wordsCache$;
+	leftGuesses$ = this.store.leftGuesses$;
 
 	private hasInitializedFirstRun = false;
 

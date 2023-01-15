@@ -9,6 +9,7 @@ import { HangmanGameStatistics } from '../../model/hangman-game-statistics.model
 })
 export class HangmanSidebarComponent {
 	@Input() statistics!: HangmanGameStatistics | null;
+  @Input() leftGuesses!: number;
 
   @Output() gameReset = new EventEmitter<void>();
 }

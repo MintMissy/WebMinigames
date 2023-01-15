@@ -8,7 +8,7 @@
 	</div>
 	<div class="game-side-bar__statistics game-side-bar__section">
 		<h2>Statistics</h2>
-		<app-hangman-statistics [statistics]="statistics"></app-hangman-statistics>
+		<app-hangman-statistics [statistics]="statistics" [leftGuesses]="leftGuesses"></app-hangman-statistics>
 	</div>
 	<div class="game-side-bar__actions">
 		<button class="button button--accent button--reset" (click)="gameReset.emit()">Reset Game</button>

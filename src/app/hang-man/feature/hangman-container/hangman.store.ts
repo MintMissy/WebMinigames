@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { GameState } from 'src/app/core/model/game-state.model';
 import { HangmanGameStatistics } from '../../model/hangman-game-statistics.model';
-import { RandomWordService } from '../../service/random-word.service';
 
 export interface HangmanState {
 	usedLetters: Map<string, boolean>;
@@ -37,6 +36,7 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 	readonly incorrectGuesses$ = this.select((state) => state.incorrectGuesses);
 	readonly statistics$ = this.select((state) => state.statistics);
 	readonly wordsCache$ = this.select((state) => state.wordsCache);
+	readonly leftGuesses$ = this.select((state) => 11 - this.getUsedLetters(state).length);
 
 	readonly lettersToEncrypt$ = this.select((state) => {
 		const lettersToEncrypt = [];
@@ -123,6 +123,16 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 		this.setState((state) => {
 			return { ...state, wordsCache: [...state.wordsCache, ...words] };
 		});
+	}
+
+	private getUsedLetters(state: HangmanState): string[] {
+		const usedLetters: string[] = [];
+		state.usedLetters.forEach((value, key) => {
+			if (value) {
+				usedLetters.push(key);
+			}
+		});
+		return usedLetters;
 	}
 
 	private getLetters() {

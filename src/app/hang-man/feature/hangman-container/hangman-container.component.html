@@ -5,5 +5,7 @@
 		[usedLetters]="(usedLetters$ | async) || {}"
 		(letterUse)="onLetterUse($event)"
 	></app-hangman-game-board>
-	<app-hangman-sidebar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-hangman-sidebar>
+	<app-hangman-sidebar [statistics]="statistics$ | async" 
+	[leftGuesses]="(leftGuesses$ | async) || 0"
+	(gameReset)="onGameReset()"></app-hangman-sidebar>
 </div>
