@@ -27,7 +27,7 @@ const initialState: HangmanState = {
 
 @Injectable()
 export class HangmanStore extends ComponentStore<HangmanState> {
-	constructor(private randomWordService: RandomWordService) {
+	constructor() {
 		super(initialState);
 	}
 
@@ -36,6 +36,7 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 	readonly gameState$ = this.select((state) => state.gameState);
 	readonly incorrectGuesses$ = this.select((state) => state.incorrectGuesses);
 	readonly statistics$ = this.select((state) => state.statistics);
+	readonly wordsCache$ = this.select((state) => state.wordsCache);
 
 	readonly lettersToEncrypt$ = this.select((state) => {
 		const lettersToEncrypt = [];
@@ -118,15 +119,10 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 		return (guessedLettersCount / lettersInCurrentWord.length) * 100;
 	}
 
-	addNewWordsToCache() {
-		this.randomWordService
-			.getRandomWords()
-			.subscribe((words) => {
-				this.setState((state) => {
-					return { ...state, wordsCache: [...state.wordsCache, ...words] };
-				});
-			})
-			.unsubscribe();
+	addNewWordsToCache(words: string[]) {
+		this.setState((state) => {
+			return { ...state, wordsCache: [...state.wordsCache, ...words] };
+		});
 	}
 
 	private getLetters() {

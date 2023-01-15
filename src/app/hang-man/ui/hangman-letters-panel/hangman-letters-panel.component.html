@@ -1,6 +1,6 @@
 <div class="letters-panel">
 	<app-hangman-letter-button
-		*ngFor="let letter of usedLetters | keyvalue"
+		*ngFor="let letter of usedLetters | keyvalue; trackBy: trackBy"
 		[letter]="letter.key"
 		[used]="letter.value"
 		(letterUse)="letterUse.emit($event)"

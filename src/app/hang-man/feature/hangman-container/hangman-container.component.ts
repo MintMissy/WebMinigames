@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RandomWordService } from '../../service/random-word.service';
 import { HangmanStore } from './hangman.store';
 
 @Component({
@@ -12,15 +13,34 @@ export class HangmanContainerComponent implements OnInit {
 	currentWord$ = this.store.currentWord$;
 	lettersToEncrypt$ = this.store.lettersToEncrypt$;
 	usedLetters$ = this.store.usedLetters$;
+	wordsCache$ = this.store.wordsCache$;
 
-	constructor(private readonly store: HangmanStore) {}
+	private hasInitializedFirstRun = false;
+
+	constructor(private readonly store: HangmanStore, private randomWordService: RandomWordService) {}
 
 	ngOnInit(): void {
-		this.store.addNewWordsToCache()
-		this.store.restartGame();
+		this.wordsCache$.subscribe((words) => {
+			if (words.length <= 5) {
+				this.addWordsToCache();
+			}
+		});
 	}
 
 	onLetterUse(letter: string) {
 		this.store.guessLetter(letter);
+	}
+
+	onRestartGame() {
+		this.store.restartGame();
+	}
+
+	addWordsToCache() {
+		this.randomWordService.getRandomWords().subscribe((words) => {
+			this.store.addNewWordsToCache(words);
+			if (!this.hasInitializedFirstRun) {
+				this.store.restartGame();
+			}
+		});
 	}
 }

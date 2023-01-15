@@ -10,4 +10,8 @@ export class HangmanLettersPanelComponent {
 	@Input() usedLetters!: Map<string, boolean> | Record<string, boolean>;
 
 	@Output() letterUse = new EventEmitter<string>();
+
+	trackBy(index: number, letter: { key: string; value: boolean }) {
+		return letter.key;
+	}
 }

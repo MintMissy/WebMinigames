@@ -5,11 +5,11 @@
 			[currentWord]="(currentWord$ | async) || ''"
 			[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
 		></app-hangman-word>
-		{{ usedLetters$ | async | json }}
 		<app-hangman-letters-panel
 			[usedLetters]="(usedLetters$ | async) || {}"
 			(letterUse)="onLetterUse($event)"
 		></app-hangman-letters-panel>
 	</div>
+	<button (click)="onRestartGame()">restart</button>
 	<!-- <app-hangman-sidebar [statistics]="statistics$ | async" (gameReset)="onGameReset()"></app-hangman-sidebar> -->
 </div>
