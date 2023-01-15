@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkWebMiniGames=self.webpackChunkWebMiniGames||[]).push([[592],{518:(c,a,n)=>{n.d(a,{e:()=>e});var o=n(6895),_=n(8274);class e{}e.\u0275fac=function(u){return new(u||e)},e.\u0275mod=_.oAB({type:e}),e.\u0275inj=_.cJS({imports:[o.ez]})}}]);
