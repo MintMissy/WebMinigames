@@ -17,7 +17,6 @@ import { MemoGameStatistics } from '../../model/memo-game-statistics.model';
 })
 export class MemoStatisticsComponent extends RefreshableComponent implements OnChanges {
 	@Input() statistics!: MemoGameStatistics | null;
-	@Input() gameProgress!: number | null;
 
 	gameTime: ElapsedTime = { minutes: 0, seconds: 0 };
 

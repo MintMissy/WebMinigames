@@ -12,7 +12,6 @@ import { HangmanGameStatistics } from '../../model/hangman-game-statistics.model
 })
 export class HangmanStatisticsComponent extends RefreshableComponent implements OnChanges {
 	@Input() statistics!: HangmanGameStatistics | null;
-	@Input() gameProgress!: number | null;
 
 	gameTime: ElapsedTime = { minutes: 0, seconds: 0 };
 

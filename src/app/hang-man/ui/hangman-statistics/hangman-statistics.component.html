@@ -4,7 +4,8 @@
 			Game Time: <span>{{ gameTime.minutes }} minutes {{ gameTime.seconds }} seconds</span>
 		</p>
 		<p>
-			<!-- Moves: <span> {{ statistics ? statistics.moves : 0 }}</span> -->
+			<!-- TODO left guesses -->
+			Left Guesses: <span> {{ 5 }}</span>
 		</p>
 	</div>
 	<app-progress-bar [progress]="statistics ? statistics.progress : 0"></app-progress-bar>
