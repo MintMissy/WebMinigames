@@ -1,5 +1,11 @@
 <div class="word-container">
-	<span *ngFor="let letter of (currentWord | encryptWord : lettersToEncrypt).split('')">
+	<span
+		*ngFor="
+			let letter of gameState === 'FINISHED'
+				? currentWord.split('')
+				: (currentWord | encryptWord : lettersToEncrypt).split('')
+		"
+	>
 		{{ letter }}
 	</span>
 </div>

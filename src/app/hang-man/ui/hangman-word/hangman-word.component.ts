@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { GameState } from 'src/app/core/model/game-state.model';
 
 @Component({
   selector: 'app-hangman-word',
@@ -9,4 +10,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class HangmanWordComponent {
   @Input() currentWord!: string;
   @Input() lettersToEncrypt!: string[];
+	@Input() gameState!: GameState;
 }

@@ -16,6 +16,7 @@ export class HangmanContainerComponent implements OnInit {
 	usedLetters$ = this.store.usedLetters$;
 	wordsCache$ = this.store.wordsCache$;
 	leftGuesses$ = this.store.leftGuesses$;
+	gameState$ = this.store.gameState$;
 
 	private hasInitializedFirstRun = false;
 

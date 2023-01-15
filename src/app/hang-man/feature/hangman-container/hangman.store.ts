@@ -61,6 +61,19 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 			const progress = this.getWordRevealProgress(state.currentWord, guessedLetters);
 			const successfulGuess = progress === 100;
 
+			if (this.getLeftGuesses({ ...state, usedLetters: guessedLetters }) === 0) {
+				return {
+					...state,
+					incorrectGuesses: 0,
+					usedLetters: guessedLetters,
+					gameState: 'FINISHED',
+					statistics: {
+						...state.statistics,
+						progress: progress,
+					},
+				};
+			}
+
 			return {
 				...state,
 				incorrectGuesses: successfulGuess ? state.incorrectGuesses : state.incorrectGuesses + 1,

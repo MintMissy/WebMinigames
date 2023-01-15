@@ -3,8 +3,9 @@
 		[currentWord]="(currentWord$ | async) || ''"
 		[lettersToEncrypt]="(lettersToEncrypt$ | async) || []"
 		[usedLetters]="(usedLetters$ | async) || {}"
-		(letterUse)="onLetterUse($event)"
 		[leftGuesses]="(leftGuesses$ | async) === null ? 11 : (leftGuesses$ | async)!"
+		[gameState]="(gameState$ | async) || 'FINISHED'"
+		(letterUse)="onLetterUse($event)"
 	></app-hangman-game-board>
 	<app-hangman-sidebar
 		[statistics]="statistics$ | async"
