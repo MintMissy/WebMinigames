@@ -1,0 +1,1 @@
+export type GameState = "IN_PROGRESS" | "FINISHED";
