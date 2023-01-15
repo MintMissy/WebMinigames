@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hangman-letter-button',
@@ -7,5 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HangmanLetterButtonComponent {
+  @Input() used!: boolean;
+  @Input() letter!: string;
 
+  @Output() letterUse = new EventEmitter<string>();
 }

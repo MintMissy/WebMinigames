@@ -1,0 +1,9 @@
+.letter-button {
+	padding: 0.75rem;
+	font-size: 1.2rem;
+	transition: transform 0.2s;
+}
+
+.letter-button--used {
+	transform: scale(0);
+}

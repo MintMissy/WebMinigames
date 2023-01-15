@@ -10,6 +10,8 @@ import { HangmanLetterButtonComponent } from './ui/hangman-letter-button/hangman
 import { HangmanLettersPanelComponent } from './ui/hangman-letters-panel/hangman-letters-panel.component';
 import { HangmanSidebarComponent } from './ui/hangman-sidebar/hangman-sidebar.component';
 import { HangmanStatisticsComponent } from './ui/hangman-statistics/hangman-statistics.component';
+import { HangmanWordComponent } from './ui/hangman-word/hangman-word.component';
+import { EncryptWordPipe } from './pipe/encrypt-word.pipe';
 
 @NgModule({
 	declarations: [
@@ -18,7 +20,9 @@ import { HangmanStatisticsComponent } from './ui/hangman-statistics/hangman-stat
     HangmanGallowComponent,
     HangmanStatisticsComponent,
     HangmanLetterButtonComponent,
-    HangmanSidebarComponent
+    HangmanSidebarComponent,
+    HangmanWordComponent,
+    EncryptWordPipe
   ],
 	imports: [CommonModule, HangManRoutingModule, LibModule, HttpClientModule],
 })

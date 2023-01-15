@@ -39,6 +39,19 @@ export class HangmanStore extends ComponentStore<HangmanState> {
 	readonly incorrectGuesses$ = this.select((state) => state.incorrectGuesses);
 	readonly statistics$ = this.select((state) => state.statistics);
 
+	readonly lettersToEncrypt$ = this.select((state) => {
+		const lettersToEncrypt = [];
+		const lettersInWord = [...new Set(state.currentWord.split(''))];
+
+		for (const letter of lettersInWord) {
+			if (!state.usedLetters.get(letter)) {
+				lettersToEncrypt.push(letter);
+			}
+		}
+
+		return lettersToEncrypt;
+	});
+
 	guessLetter(letter: string) {
 		this.setState((state) => {
 			if (state.gameState === 'FINISHED') return { ...state };
